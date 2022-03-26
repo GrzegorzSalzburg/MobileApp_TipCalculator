@@ -1,6 +1,7 @@
 package com.example.tipcalculator
 //Grzegorz Salzburg 252912
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -19,15 +20,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var procentview: TextView
     private lateinit var totalviewamount: TextView
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        edittextvar = findViewById<EditText>(R.id.edit_text)
-        seekbartip = findViewById<SeekBar>(R.id.seekBarTip)
-        tipviewamount = findViewById<TextView>(R.id.tip_view_amount)
-        procentview = findViewById<TextView>(R.id.procent_view)
-        totalviewamount = findViewById<TextView>(R.id.total_view_amount)
+        edittextvar = findViewById(R.id.edit_text)
+        seekbartip = findViewById(R.id.seekBarTip)
+        tipviewamount = findViewById(R.id.tip_view_amount)
+        procentview = findViewById(R.id.procent_view)
+        totalviewamount = findViewById(R.id.total_view_amount)
 
         seekbartip.progress = INITIAL_TIP
         procentview.text = "$INITIAL_TIP%"
@@ -62,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun tipandtotal() {
         if(edittextvar.text.toString().isEmpty())
         {
