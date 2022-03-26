@@ -63,13 +63,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tipandtotal() {
+        if(edittextvar.text.toString().isEmpty())
+        {
+            tipviewamount.text =""
+            totalviewamount.text=""
+            return
+        }
+
         val baseAmount = edittextvar.text.toString().toDouble()
         val tipPercent = seekbartip.progress
 
         val tipAmount = baseAmount * tipPercent.toDouble() / 100
         val totalAmount = baseAmount + tipAmount
 
-        tipviewamount.text = tipAmount.toString()
-        totalviewamount.text = totalAmount.toString()
+        tipviewamount.text = "%.2f".format(tipAmount)
+        totalviewamount.text = "%.2f".format(totalAmount)
     }
 }
